@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cherry Lee H. Jimenez — Virtual Assistant &amp; Operations Portfolio</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #FAF9F6;
+      color: #1E293B;
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background-color: #FFFFFF; }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- Toast Notification -->
+  <div id="toast" role="status" aria-live="polite" class="fixed bottom-5 right-5 z-50 hidden items-center gap-2.5 rounded-xl bg-slate-900 px-4 py-3 text-sm font-medium text-white shadow-lg transition-all">
+    <svg class="h-4 w-4 text-teal-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+    </svg>
+    <span id="toast-message">Copied to clipboard</span>
+  </div>
+
+  <!-- Sticky Header -->
+  <header class="no-print sticky top-0 z-40 border-b border-slate-200/80 bg-[#FAF9F6]/90 backdrop-blur-md">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6">
+      <a href="#top" class="flex items-center gap-2.5 font-bold tracking-tight text-slate-900">
+        <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-teal-700 text-xs font-extrabold text-white shadow-sm">CLJ</span>
+        <span class="text-sm sm:text-base">Cherry Lee Jimenez</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Primary" class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
+        <a href="#about" class="transition hover:text-teal-700">About</a>
+        <a href="#experience" class="transition hover:text-teal-700">Experience</a>
+        <a href="#projects" class="transition hover:text-teal-700">Projects</a>
+        <a href="#services" class="transition hover:text-teal-700">Services &amp; Tools</a>
+        <a href="#credentials" class="transition hover:text-teal-700">Credentials</a>
+        <a href="#contact" class="transition hover:text-teal-700">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <button id="print-btn" type="button" class="hidden items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 shadow-xs transition hover:border-teal-600 hover:text-teal-700 sm:inline-flex">
+          <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+          </svg>
+          Save PDF
+        </button>
+        <a href="#contact" class="rounded-lg bg-teal-700 px-3.5 py-1.5 text-xs font-semibold text-white shadow-xs transition hover:bg-teal-800 sm:text-sm">
+          Hire Me
+        </a>
+        <button id="mobile-menu-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" class="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white p-2 text-slate-700 md:hidden">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white px-4 py-3 md:hidden">
+      <div class="flex flex-col gap-2 text-sm font-medium text-slate-700">
+        <a href="#about" class="mobile-nav-link rounded-lg px-3 py-2 hover:bg-slate-50">About</a>
+        <a href="#experience" class="mobile-nav-link rounded-lg px-3 py-2 hover:bg-slate-50">Experience</a>
+        <a href="#projects" class="mobile-nav-link rounded-lg px-3 py-2 hover:bg-slate-50">Projects</a>
+        <a href="#services" class="mobile-nav-link rounded-lg px-3 py-2 hover:bg-slate-50">Services &amp; Tools</a>
+        <a href="#credentials" class="mobile-nav-link rounded-lg px-3 py-2 hover:bg-slate-50">Credentials</a>
+        <a href="#contact" class="mobile-nav-link rounded-lg px-3 py-2 hover:bg-slate-50">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="mx-auto max-w-6xl px-4 sm:px-6">
+
+    <!-- Hero Section -->
+    <section id="about" class="py-12 sm:py-16 lg:py-20">
+      <div class="grid items-center gap-10 lg:grid-cols-12">
+        <div class="lg:col-span-8">
+          <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-3.5 py-1 text-xs font-semibold text-teal-800">
+            <span class="h-2 w-2 rounded-full bg-teal-600"></span>
+            Available for Remote Virtual Assistant &amp; Operations Roles &bull; UTC+8 (PHT)
+          </div>
+
+          <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl lg:leading-[1.12]">
+            Back-Office Precision Meets <span class="text-teal-700">Computer Science</span> Problem-Solving.
+          </h1>
+
+          <p class="mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
+            I&rsquo;m <strong class="font-semibold text-slate-900">Cherry Lee H. Jimenez</strong>, a Computer Science graduate (USTP, Class of 2026) and experienced non-voice back-office specialist from Cagayan de Oro City. I help founders and remote teams stay organized through structured account operations, data-privacy-first administration, project coordination, and digital content management.
+          </p>
+
+          <div class="mt-7 flex flex-wrap items-center gap-3">
+            <a href="#projects" class="inline-flex items-center gap-2 rounded-xl bg-teal-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-800">
+              Explore Accomplished Work
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+            <button id="hero-copy-email" type="button" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-xs transition hover:border-teal-600 hover:text-teal-700">
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              Copy Email Address
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Snapshot Card -->
+        <div class="lg:col-span-4">
+          <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="flex items-center gap-3.5 border-b border-slate-100 pb-4">
+              <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-700 to-teal-900 text-lg font-extrabold text-white shadow-sm">
+                CLJ
+              </div>
+              <div>
+                <h2 class="text-base font-bold text-slate-900">Cherry Lee H. Jimenez</h2>
+                <p class="text-xs font-medium text-slate-500">Virtual Assistant &amp; Back-Office Specialist</p>
+                <p class="mt-0.5 text-xs text-teal-700 font-medium">Cagayan de Oro, Philippines</p>
+              </div>
+            </div>
+
+            <dl class="mt-4 space-y-3 text-sm">
+              <div class="flex items-start justify-between gap-2">
+                <dt class="text-slate-500">Degree</dt>
+                <dd class="text-right font-semibold text-slate-900">B.S. Computer Science (2026)</dd>
+              </div>
+              <div class="flex items-start justify-between gap-2">
+                <dt class="text-slate-500">Current Role</dt>
+                <dd class="text-right font-semibold text-slate-900">Back-Office CSR, BPlus</dd>
+              </div>
+              <div class="flex items-start justify-between gap-2">
+                <dt class="text-slate-500">Research</dt>
+                <dd class="text-right font-semibold text-slate-900">IAIT2026 Accepted Author</dd>
+              </div>
+              <div class="flex items-start justify-between gap-2">
+                <dt class="text-slate-500">Working Style</dt>
+                <dd class="text-right font-semibold text-teal-700">Detail-Oriented &bull; Clear</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlight Strip -->
+      <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <div class="rounded-2xl border border-slate-200 bg-white p-4">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Back-Office Ops</p>
+          <p class="mt-1 text-lg font-bold text-slate-900">Non-Voice CX</p>
+          <p class="mt-0.5 text-xs text-slate-500">Payment plans, bookings &amp; privacy compliance</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-4">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Internship</p>
+          <p class="mt-1 text-lg font-bold text-slate-900">240 Hours</p>
+          <p class="mt-0.5 text-xs text-slate-500">Remote software &amp; UI dev at Livro Systems</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-4">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Content &amp; Social</p>
+          <p class="mt-1 text-lg font-bold text-slate-900">11 Months</p>
+          <p class="mt-0.5 text-xs text-slate-500">Editorial calendars &amp; Meta analytics</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-4">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Tech Edge</p>
+          <p class="mt-1 text-lg font-bold text-slate-900">AI &amp; Systems</p>
+          <p class="mt-0.5 text-xs text-slate-500">Notion, Google Workspace, Salesforce &amp; Python</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="border-t border-slate-200 py-14">
+      <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-teal-700">Track Record</p>
+          <h2 class="mt-1 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">Relevant Experience</h2>
+          <p class="mt-2 max-w-2xl text-sm text-slate-600">
+            Hands-on roles spanning remote back-office support, software development, and multi-channel content administration.
+          </p>
+        </div>
+
+        <div id="exp-filters" class="no-print flex flex-wrap gap-2" role="group" aria-label="Filter experience by category">
+          <button type="button" data-filter="all" class="exp-filter-btn rounded-full bg-slate-900 px-3.5 py-1.5 text-xs font-semibold text-white transition">All</button>
+          <button type="button" data-filter="operations" class="exp-filter-btn rounded-full border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-teal-600">Operations</button>
+          <button type="button" data-filter="content" class="exp-filter-btn rounded-full border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-teal-600">Content &amp; Social</button>
+          <button type="button" data-filter="tech" class="exp-filter-btn rounded-full border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-teal-600">Software</button>
+        </div>
+      </div>
+
+      <div id="experience-list" class="mt-8 grid gap-5 md:grid-cols-2">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- Projects & Case Studies Section -->
+    <section id="projects" class="border-t border-slate-200 py-14">
+      <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-teal-700">Proof of Work</p>
+          <h2 class="mt-1 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">Accomplishments &amp; Projects</h2>
+          <p class="mt-2 max-w-2xl text-sm text-slate-600">
+            Select any card to inspect the scope, tools, and deliverables behind each project.
+          </p>
+        </div>
+
+        <div id="proj-filters" class="no-print flex flex-wrap gap-2" role="group" aria-label="Filter projects by category">
+          <button type="button" data-filter="all" class="proj-filter-btn rounded-full bg-slate-900 px-3.5 py-1.5 text-xs font-semibold text-white transition">All</button>
+          <button type="button" data-filter="coordination" class="proj-filter-btn rounded-full border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-teal-600">Coordination</button>
+          <button type="button" data-filter="research" class="proj-filter-btn rounded-full border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-teal-600">Research &amp; AI</button>
+          <button type="button" data-filter="technical" class="proj-filter-btn rounded-full border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-teal-600">CRM &amp; Web</button>
+          <button type="button" data-filter="community" class="proj-filter-btn rounded-full border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-teal-600">Outreach</button>
+        </div>
+      </div>
+
+      <div id="projects-grid" class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- Services & Tool Stack Section -->
+    <section id="services" class="border-t border-slate-200 py-14">
+      <p class="text-xs font-bold uppercase tracking-widest text-teal-700">How I Help Clients</p>
+      <h2 class="mt-1 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">Virtual Assistant Services &amp; Tool Stack</h2>
+
+      <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 text-teal-700">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="mt-4 text-base font-bold text-slate-900">Back-Office &amp; Admin</h3>
+          <p class="mt-2 text-xs leading-relaxed text-slate-600">
+            Account updates, booking adjustments, custom payment plans, database accuracy, SOP documentation, and strict data privacy handling.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-700">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="mt-4 text-base font-bold text-slate-900">Project Coordination</h3>
+          <p class="mt-2 text-xs leading-relaxed text-slate-600">
+            Timeline tracking, cross-team alignment, budget &amp; pitch prep, structured Notion/Drive workspaces, and reliable async reporting.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-700">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+            </svg>
+          </div>
+          <h3 class="mt-4 text-base font-bold text-slate-900">Content &amp; Social Support</h3>
+          <p class="mt-2 text-xs leading-relaxed text-slate-600">
+            Publishing calendars, copywriting, proofreading, Canva visual assets, Figma wireframes, and Meta Business Suite scheduling.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+          </div>
+          <h3 class="mt-4 text-base font-bold text-slate-900">Tech &amp; Research Support</h3>
+          <p class="mt-2 text-xs leading-relaxed text-slate-600">
+            Deep-dive research synthesis, spreadsheet tracking, Salesforce CRM foundations, AI workflow assistance, and basic web/UI updates.
+          </p>
+        </div>
+      </div>
+
+      <!-- Interactive Tool Stack -->
+      <div class="mt-8 rounded-2xl border border-slate-200 bg-white p-6">
+        <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+          <div>
+            <h3 class="text-base font-bold text-slate-900">Tools &amp; Platforms</h3>
+            <p class="text-xs text-slate-500">Filter by workflow area to see my hands-on stack.</p>
+          </div>
+          <div id="tool-filters" class="no-print flex flex-wrap gap-2" role="group" aria-label="Filter tools by category">
+            <button type="button" data-filter="all" class="tool-filter-btn rounded-full bg-slate-900 px-3 py-1 text-xs font-semibold text-white transition">All</button>
+            <button type="button" data-filter="productivity" class="tool-filter-btn rounded-full border border-slate-300 bg-white px-3 py-1 text-xs font-semibold text-slate-700 transition hover:border-teal-600">Workspace</button>
+            <button type="button" data-filter="ops" class="tool-filter-btn rounded-full border border-slate-300 bg-white px-3 py-1 text-xs font-semibold text-slate-700 transition hover:border-teal-600">Ops &amp; CRM</button>
+            <button type="button" data-filter="design" class="tool-filter-btn rounded-full border border-slate-300 bg-white px-3 py-1 text-xs font-semibold text-slate-700 transition hover:border-teal-600">Design &amp; Social</button>
+            <button type="button" data-filter="tech" class="tool-filter-btn rounded-full border border-slate-300 bg-white px-3 py-1 text-xs font-semibold text-slate-700 transition hover:border-teal-600">Technical</button>
+          </div>
+        </div>
+
+        <div id="tools-grid" class="mt-5 flex flex-wrap gap-2.5">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Credentials Section -->
+    <section id="credentials" class="border-t border-slate-200 py-14">
+      <p class="text-xs font-bold uppercase tracking-widest text-teal-700">Verified Background</p>
+      <h2 class="mt-1 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">Education &amp; Credentials</h2>
+
+      <div class="mt-8 grid gap-6 lg:grid-cols-2">
+        <!-- Education -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6">
+          <h3 class="text-base font-bold text-slate-900">Academic Background</h3>
+          <div class="mt-5 space-y-5">
+            <div class="border-l-2 border-teal-600 pl-4">
+              <span class="text-xs font-semibold text-teal-700">2022 &ndash; 2026</span>
+              <h4 class="text-sm font-bold text-slate-900">Bachelor of Science in Computer Science</h4>
+              <p class="text-xs font-medium text-slate-600">University of Science and Technology of Southern Philippines (USTP)</p>
+              <p class="mt-1.5 text-xs text-slate-500">
+                CITC Class of 2026 &bull; CS180 Research Colloquium Presenter &bull; Member, Google Developer Student Club (GDSC) &amp; Computer Science Student Society (CS&sup3;).
+              </p>
+            </div>
+            <div class="border-l-2 border-slate-300 pl-4">
+              <span class="text-xs font-semibold text-slate-500">2020 &ndash; 2022</span>
+              <h4 class="text-sm font-bold text-slate-900">Information and Communications Technology (ICT)</h4>
+              <p class="text-xs font-medium text-slate-600">Informatics Computer Institute</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certifications & Traits -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6">
+          <h3 class="text-base font-bold text-slate-900">Assessments, Training &amp; Recognition</h3>
+          <ul class="mt-5 space-y-3.5 text-sm">
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal-100 text-teal-700 text-xs font-bold">&#10003;</span>
+              <div>
+                <p class="font-semibold text-slate-900">Upwork Working Style Assessment</p>
+                <p class="text-xs text-slate-500">Verified top strengths: <strong>Detail-Oriented</strong> &amp; <strong>Clear Communicator</strong>.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal-100 text-teal-700 text-xs font-bold">&#10003;</span>
+              <div>
+                <p class="font-semibold text-slate-900">IAIT2026 Research Paper Acceptance</p>
+                <p class="text-xs text-slate-500">Co-authored paper on lightweight deepfake audio detection accepted for oral presentation &amp; publication.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal-100 text-teal-700 text-xs font-bold">&#10003;</span>
+              <div>
+                <p class="font-semibold text-slate-900">Salesforce Supported Virtual Internship Program (2025)</p>
+                <p class="text-xs text-slate-500">Hands-on Trailhead training in Sales Cloud, Service Cloud, and Agentforce via SmartBridge.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal-100 text-teal-700 text-xs font-bold">&#10003;</span>
+              <div>
+                <p class="font-semibold text-slate-900">Cisco Networking Academy (NetAcad)</p>
+                <p class="text-xs text-slate-500">Completed IT networking and cybersecurity modules with digital credentials.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="border-t border-slate-200 py-14 pb-20">
+      <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10">
+        <div class="grid gap-10 lg:grid-cols-12">
+          <div class="lg:col-span-5">
+            <p class="text-xs font-bold uppercase tracking-widest text-teal-700">Let&rsquo;s Work Together</p>
+            <h2 class="mt-1 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">Ready to Support Your Team</h2>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600">
+              Looking for a dependable Virtual Assistant who combines real back-office experience with strong technical fluency? Reach out directly or send a quick project brief.
+            </p>
+
+            <div class="mt-6 space-y-3 text-sm">
+              <div class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                <div class="min-w-0">
+                  <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Email</p>
+                  <p class="truncate font-semibold text-slate-900">jimenez.cherryleeh@gmail.com</p>
+                </div>
+                <button id="copy-email-btn" type="button" class="no-print ml-3 shrink-0 rounded-lg border border-slate-300 bg-white px-2.5 py-1 text-xs font-semibold text-slate-700 transition hover:border-teal-600 hover:text-teal-700">Copy</button>
+              </div>
+
+              <div class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                <div>
+                  <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Phone / Mobile</p>
+                  <p class="font-semibold text-slate-900">+63 926 228 3506</p>
+                </div>
+                <button id="copy-phone-btn" type="button" class="no-print ml-3 shrink-0 rounded-lg border border-slate-300 bg-white px-2.5 py-1 text-xs font-semibold text-slate-700 transition hover:border-teal-600 hover:text-teal-700">Copy</button>
+              </div>
+
+              <div class="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                <div class="min-w-0">
+                  <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">GitHub Portfolio</p>
+                  <p class="truncate font-semibold text-slate-900">github.com/cheaneatine</p>
+                </div>
+                <a href="https://github.com/cheaneatine" target="_blank" rel="noopener noreferrer" class="ml-3 shrink-0 rounded-lg border border-slate-300 bg-white px-2.5 py-1 text-xs font-semibold text-teal-700 transition hover:border-teal-600">Visit</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Discovery Brief Form -->
+          <div class="no-print lg:col-span-7">
+            <form id="inquiry-form" class="space-y-4 rounded-2xl border border-slate-200 bg-[#FAF9F6] p-5 sm:p-6">
+              <div class="flex items-center justify-between">
+                <h3 class="text-sm font-bold text-slate-900">Quick Client Inquiry / Intro Draft</h3>
+                <span class="text-xs text-slate-500">Generates a ready-to-send email</span>
+              </div>
+
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="client-name" class="block text-xs font-semibold text-slate-700">Your Name / Company</label>
+                  <input id="client-name" type="text" required placeholder="e.g., Alex Morgan, Studio Co." class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-teal-600 focus:outline-none" />
+                </div>
+                <div>
+                  <label for="support-area" class="block text-xs font-semibold text-slate-700">Primary Support Needed</label>
+                  <select id="support-area" class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-teal-600 focus:outline-none">
+                    <option value="Back-Office &amp; Admin Support">Back-Office &amp; Admin Support</option>
+                    <option value="Project &amp; Operations Coordination">Project &amp; Operations Coordination</option>
+                    <option value="Social Media &amp; Content Management">Social Media &amp; Content Management</option>
+                    <option value="Technical &amp; Research Assistance">Technical &amp; Research Assistance</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label for="client-message" class="block text-xs font-semibold text-slate-700">Project Scope or Weekly Hours</label>
+                <textarea id="client-message" rows="3" required placeholder="Share your timezone, tools, or tasks you'd like help with..." class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-teal-600 focus:outline-none"></textarea>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-3">
+                <button type="submit" class="rounded-xl bg-teal-700 px-5 py-2.5 text-sm font-semibold text-white shadow-xs transition hover:bg-teal-800">
+                  Copy Inquiry Summary
+                </button>
+                <a id="mailto-link" href="mailto:jimenez.cherryleeh@gmail.com?subject=Virtual%20Assistant%20Inquiry" class="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-teal-600 hover:text-teal-700">
+                  Open in Email App
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Project Detail Modal -->
+  <div id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/50 p-4 backdrop-blur-xs">
+    <div class="relative max-h-[90vh] w-full max-w-xl overflow-y-auto rounded-2xl bg-white p-6 shadow-xl sm:p-7">
+      <button id="modal-close-btn" type="button" aria-label="Close project details" class="absolute right-4 top-4 rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700">
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <span id="modal-badge" class="inline-block rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-800">Category</span>
+      <h3 id="modal-title" class="mt-3 text-xl font-extrabold text-slate-900">Project Title</h3>
+      <p id="modal-meta" class="mt-1 text-xs font-medium text-slate-500">Role &bull; Timeline</p>
+
+      <div class="mt-4 space-y-4 text-sm leading-relaxed text-slate-600">
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Overview</h4>
+          <p id="modal-summary" class="mt-1"></p>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Key Accomplishments</h4>
+          <ul id="modal-bullets" class="mt-1.5 list-disc space-y-1.5 pl-5"></ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Tools &amp; Skills Applied</h4>
+          <div id="modal-tools" class="mt-2 flex flex-wrap gap-1.5"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500">
+    <p>&copy; 2026 Cherry Lee H. Jimenez &bull; Cagayan de Oro City, Philippines (UTC+8)</p>
+  </footer>
+
+  <script>
+    (function () {
+      const EXPERIENCES = [
+        {
+          id: 'bplus',
+          category: 'operations',
+          role: 'Customer Service Representative (Back-Office Support)',
+          org: 'BPlus Outsourcing Services',
+          period: 'May 2026 – Present',
+          badge: 'Current Role',
+          bullets: [
+            'Provided dedicated, non-voice back-office support managing sensitive account operations, booking adjustments, and administrative tasks under strict data privacy protocols.',
+            'Configured customized client payment plans and accurately executed system-wide pricing updates across care programs.',
+            'Collaborated regularly with client teams on task alignment, workflow performance reviews, and SOP compliance using Sprout Ecosystem and KAMI Workforce.'
+          ],
+          tags: ['Back-Office Ops', 'Data Privacy', 'Payment Plans', 'Client Alignment']
+        },
+        {
+          id: 'livro',
+          category: 'tech',
+          role: 'Software Development Intern (240-Hour OJT)',
+          org: 'Livro Systems Inc. (formerly Wela School Systems)',
+          period: 'June – July 2025',
+          badge: 'Remote Internship',
+          bullets: [
+            'Completed a 240-hour practical internship in a remote/virtual setup, delivering assigned coding tasks on schedule.',
+            'Strengthened UI functionality and cross-platform integration while collaborating within an agile software team.'
+          ],
+          tags: ['UI Functionality', 'Remote Collaboration', 'Technical Delivery']
+        },
+        {
+          id: 'wanderbrew',
+          category: 'content',
+          role: 'Content Manager & Social Media Administrator',
+          org: 'WanderBrew Journal (Self-Employed)',
+          period: '2024 (11 Months)',
+          badge: 'Content & Social',
+          bullets: [
+            'Developed and maintained a consistent publishing calendar across Facebook and Instagram.',
+            'Wrote, proofread, and optimized all posts for brand consistency while managing formatting and platform analytics.'
+          ],
+          tags: ['Content Calendar', 'Meta Platforms', 'Copywriting', 'Analytics']
+        },
+        {
+          id: 'cbn',
+          category: 'content',
+          role: 'Outreach & Local Feature Contributor',
+          org: 'Cagayan de Oro Bloggers Network (CBN)',
+          period: '2024 (10 Months)',
+          badge: 'Community & Media',
+          bullets: [
+            'Managed personal deliverables (photo shoots and written features) within shared group timelines for simultaneous campaign launches.',
+            'Coordinated with local hospitality venues and businesses to produce engaging promotional features.'
+          ],
+          tags: ['Campaign Coordination', 'Stakeholder Liaison', 'Deadline Management']
+        }
+      ];
+
+      const PROJECTS = [
+        {
+          id: 'deepfake-thesis',
+          category: 'research',
+          categoryLabel: 'Research & AI',
+          title: 'Lightweight Deepfake Audio Detection',
+          role: 'Thesis Researcher',
+          period: 'Sept 2025 – May 2026',
+          shortDesc: 'ResNeXt-to-MobileNetV3 Knowledge Distillation framework accepted at IAIT2026.',
+          summary: 'Co-developed a compact AI security framework transferring high-capacity ResNeXt teacher performance to a smartphone-ready MobileNetV3 student model for deepfake audio detection.',
+          bullets: [
+            'Accepted for oral presentation and publication at IAIT2026 (14th International Conference on Advances in Information Technology).',
+            'Presented research findings at the USTP CS180 Research Colloquium (March 2026).',
+            'Managed multi-month experiment logs, dataset evaluations (ASVspoof, FoR, In-the-Wild), and academic manuscript preparation.'
+          ],
+          tools: ['Python', 'Knowledge Distillation', 'Research Writing', 'Team Coordination']
+        },
+        {
+          id: 'plasticash',
+          category: 'coordination',
+          categoryLabel: 'Coordination',
+          title: 'PlastiCash IoT Vending Machine',
+          role: 'Project Coordinator & Documentation Lead',
+          period: 'Jan – May 2025',
+          shortDesc: 'End-to-end project coordination, budgeting, wireframing, and pitch documentation.',
+          summary: 'Led project coordination for PlastiCash, an academic startup building an IoT-enabled vending machine to incentivize plastic bottle recycling.',
+          bullets: [
+            'Managed the project budget, timeline milestones, and visual design planning.',
+            'Authored pitch documentation and collaborated on mobile app wireframing in Figma.',
+            'Aligned product features with market research and multidisciplinary team feedback.'
+          ],
+          tools: ['Project Management', 'Budgeting', 'Figma', 'Pitch Documentation']
+        },
+        {
+          id: 'salesforce-vip',
+          category: 'technical',
+          categoryLabel: 'CRM & Web',
+          title: 'Salesforce Virtual Internship (SF-VIP)',
+          role: 'Virtual Intern (SmartBridge)',
+          period: 'Oct 2025',
+          shortDesc: 'Hands-on CRM training across Sales Cloud, Service Cloud, and Agentforce.',
+          summary: 'Enrolled in the Salesforce Supported Virtual Internship Program (Philippines), completing Trailhead modules and guided CRM implementation exercises.',
+          bullets: [
+            'Built practical familiarity with Salesforce Sales Cloud, Service Cloud, and Agentforce workflows.',
+            'Earned Trailhead credentials and participated in remote mentorship sessions.'
+          ],
+          tools: ['Salesforce CRM', 'Trailhead', 'Skill Wallet', 'Remote Learning']
+        },
+        {
+          id: 'cheroz',
+          category: 'research',
+          categoryLabel: 'Research & AI',
+          title: 'Cheroz Algorithm: Hybrid Sorting Method',
+          role: 'Research Co-Author',
+          period: 'Jan – May 2024',
+          shortDesc: 'Co-authored hybrid Heap + Insertion Sort study with empirical benchmarking.',
+          summary: 'Co-developed and evaluated a hybrid sorting algorithm combining Heap Sort and Insertion Sort to optimize performance across diverse input distributions.',
+          bullets: [
+            'Authored core sections of the research paper including methodology and limitations.',
+            'Executed structured performance benchmarks across random, sorted, and reverse-sorted datasets.'
+          ],
+          tools: ['Data Analysis', 'Technical Writing', 'Algorithm Testing']
+        },
+        {
+          id: 'spre4d',
+          category: 'community',
+          categoryLabel: 'Outreach',
+          title: 'SPRE4D THE WORD — GDSC Outreach',
+          role: 'Student Organization Volunteer',
+          period: 'April 2024',
+          shortDesc: 'Represented Google Developer Student Club USTP across three local high schools.',
+          summary: 'Coordinated and delivered student outreach sessions introducing high school learners to coding, UI design, and campus developer communities.',
+          bullets: [
+            'Represented USTP’s Google Developer Student Club across three secondary schools.',
+            'Supported event logistics, scheduling, and advocacy presentations.'
+          ],
+          tools: ['Event Logistics', 'Public Speaking', 'Team Collaboration']
+        },
+        {
+          id: 'anitulong-web',
+          category: 'technical',
+          categoryLabel: 'CRM & Web',
+          title: 'AniTulong & Web/Simulation Builds',
+          role: 'Developer & Proposal Contributor',
+          period: '2021 – 2024',
+          shortDesc: 'E-commerce startup concept, responsive music web app (Fonnhelli), and C++ simulation.',
+          summary: 'Collection of foundational business and software builds demonstrating e-commerce planning and frontend responsiveness.',
+          bullets: [
+            'AniTulong: Co-created an e-commerce business proposal connecting local farmers directly with consumers.',
+            'Fonnhelli: Designed and built a responsive music website with clean UI hierarchy.',
+            'Code Road: Co-developed an interactive 2D car simulation in C++.'
+          ],
+          tools: ['E-Commerce Planning', 'HTML/CSS', 'UI Prototyping', 'C++']
+        }
+      ];
+
+      const TOOLS = [
+        { name: 'Google Workspace (Docs, Sheets, Drive, Gmail)', cat: 'productivity' },
+        { name: 'Notion', cat: 'productivity' },
+        { name: 'Microsoft Office & Excel', cat: 'productivity' },
+        { name: 'Sprout Ecosystem', cat: 'ops' },
+        { name: 'KAMI Workforce', cat: 'ops' },
+        { name: 'Salesforce (Sales & Service Cloud)', cat: 'ops' },
+        { name: 'Database & Account Ops', cat: 'ops' },
+        { name: 'Canva', cat: 'design' },
+        { name: 'Figma', cat: 'design' },
+        { name: 'Meta Business Suite', cat: 'design' },
+        { name: 'Python & C++', cat: 'tech' },
+        { name: 'GitHub', cat: 'tech' },
+        { name: 'ChatGPT & Grammarly', cat: 'tech' }
+      ];
+
+      let activeExpFilter = 'all';
+      let activeProjFilter = 'all';
+      let activeToolFilter = 'all';
+      let toastTimer = null;
+
+      function showToast(msg) {
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toast-message');
+        toastMsg.textContent = msg;
+        toast.classList.remove('hidden');
+        toast.classList.add('flex');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () {
+          toast.classList.add('hidden');
+          toast.classList.remove('flex');
+        }, 2800);
+      }
+
+      function copyText(text, successMsg) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () {
+            showToast(successMsg);
+          }).catch(function () {
+            fallbackCopy(text, successMsg);
+          });
+        } else {
+          fallbackCopy(text, successMsg);
+        }
+      }
+
+      function fallbackCopy(text, successMsg) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          showToast(successMsg);
+        } catch (err) {
+          showToast('Please copy manually: ' + text);
+        }
+        document.body.removeChild(ta);
+      }
+
+      function renderExperience() {
+        const container = document.getElementById('experience-list');
+        const filtered = activeExpFilter === 'all'
+          ? EXPERIENCES
+          : EXPERIENCES.filter(function (e) { return e.category === activeExpFilter; });
+
+        container.innerHTML = filtered.map(function (item) {
+          const bulletsHtml = item.bullets.map(function (b) {
+            return '<li>' + b + '</li>';
+          }).join('');
+          const tagsHtml = item.tags.map(function (t) {
+            return '<span class="rounded-md bg-slate-100 px-2.5 py-0.5 text-[11px] font-medium text-slate-700">' + t + '</span>';
+          }).join('');
+          return (
+            '<article class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-xs transition hover:border-teal-200">' +
+              '<div>' +
+                '<div class="flex flex-wrap items-center justify-between gap-2">' +
+                  '<span class="rounded-full bg-teal-50 px-2.5 py-0.5 text-[11px] font-semibold text-teal-800">' + item.badge + '</span>' +
+                  '<span class="text-xs font-medium text-slate-500">' + item.period + '</span>' +
+                '</div>' +
+                '<h3 class="mt-3 text-base font-bold text-slate-900">' + item.role + '</h3>' +
+                '<p class="text-xs font-semibold text-teal-700">' + item.org + '</p>' +
+                '<ul class="mt-3.5 list-disc space-y-1.5 pl-4 text-xs leading-relaxed text-slate-600">' + bulletsHtml + '</ul>' +
+              '</div>' +
+              '<div class="mt-4 flex flex-wrap gap-1.5 border-t border-slate-100 pt-3.5">' + tagsHtml + '</div>' +
+            '</article>'
+          );
+        }).join('');
+      }
+
+      function renderProjects() {
+        const grid = document.getElementById('projects-grid');
+        const filtered = activeProjFilter === 'all'
+          ? PROJECTS
+          : PROJECTS.filter(function (p) { return p.category === activeProjFilter; });
+
+        grid.innerHTML = filtered.map(function (p) {
+          return (
+            '<button type="button" data-project-id="' + p.id + '" class="project-card group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-xs transition hover:-translate-y-0.5 hover:border-teal-600 hover:shadow-md">' +
+              '<div>' +
+                '<div class="flex items-center justify-between gap-2">' +
+                  '<span class="rounded-full bg-slate-100 px-2.5 py-0.5 text-[11px] font-semibold text-slate-700 group-hover:bg-teal-50 group-hover:text-teal-800">' + p.categoryLabel + '</span>' +
+                  '<span class="text-[11px] font-medium text-slate-400">' + p.period + '</span>' +
+                '</div>' +
+                '<h3 class="mt-3 text-base font-bold text-slate-900 group-hover:text-teal-700">' + p.title + '</h3>' +
+                '<p class="mt-0.5 text-xs font-medium text-slate-500">' + p.role + '</p>' +
+                '<p class="mt-2.5 text-xs leading-relaxed text-slate-600">' + p.shortDesc + '</p>' +
+              '</div>' +
+              '<div class="mt-4 flex items-center gap-1 text-xs font-semibold text-teal-700">' +
+                '<span>View details</span>' +
+                '<svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">' +
+                  '<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />' +
+                '</svg>' +
+              '</div>' +
+            '</button>'
+          );
+        }).join('');
+      }
+
+      function renderTools() {
+        const grid = document.getElementById('tools-grid');
+        const filtered = activeToolFilter === 'all'
+          ? TOOLS
+          : TOOLS.filter(function (t) { return t.cat === activeToolFilter; });
+
+        grid.innerHTML = filtered.map(function (t) {
+          return '<span class="rounded-xl border border-slate-200 bg-[#FAF9F6] px-3.5 py-1.5 text-xs font-semibold text-slate-800">' + t.name + '</span>';
+        }).join('');
+      }
+
+      function setActiveFilterBtn(containerId, activeFilter) {
+        const buttons = document.querySelectorAll('#' + containerId + ' button');
+        buttons.forEach(function (btn) {
+          const isMatch = btn.getAttribute('data-filter') === activeFilter;
+          if (isMatch) {
+            btn.className = btn.className
+              .replace(/border border-slate-300 bg-white text-slate-700/g, '')
+              .replace(/bg-slate-900 text-white/g, '') + ' bg-slate-900 text-white';
+            btn.classList.remove('border', 'border-slate-300', 'bg-white', 'text-slate-700');
+          } else {
+            btn.classList.remove('bg-slate-900', 'text-white');
+            btn.classList.add('border', 'border-slate-300', 'bg-white', 'text-slate-700');
+          }
+        });
+      }
+
+      function openProjectModal(projectId) {
+        const proj = PROJECTS.find(function (p) { return p.id === projectId; });
+        if (!proj) return;
+        document.getElementById('modal-badge').textContent = proj.categoryLabel;
+        document.getElementById('modal-title').textContent = proj.title;
+        document.getElementById('modal-meta').textContent = proj.role + ' • ' + proj.period;
+        document.getElementById('modal-summary').textContent = proj.summary;
+        document.getElementById('modal-bullets').innerHTML = proj.bullets.map(function (b) {
+          return '<li>' + b + '</li>';
+        }).join('');
+        document.getElementById('modal-tools').innerHTML = proj.tools.map(function (t) {
+          return '<span class="rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700">' + t + '</span>';
+        }).join('');
+
+        const modal = document.getElementById('project-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+
+      function closeProjectModal() {
+        const modal = document.getElementById('project-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+
+      // Event Listeners
+      document.getElementById('exp-filters').addEventListener('click', function (e) {
+        const btn = e.target.closest('button[data-filter]');
+        if (!btn) return;
+        activeExpFilter = btn.getAttribute('data-filter');
+        setActiveFilterBtn('exp-filters', activeExpFilter);
+        renderExperience();
+      });
+
+      document.getElementById('proj-filters').addEventListener('click', function (e) {
+        const btn = e.target.closest('button[data-filter]');
+        if (!btn) return;
+        activeProjFilter = btn.getAttribute('data-filter');
+        setActiveFilterBtn('proj-filters', activeProjFilter);
+        renderProjects();
+      });
+
+      document.getElementById('tool-filters').addEventListener('click', function (e) {
+        const btn = e.target.closest('button[data-filter]');
+        if (!btn) return;
+        activeToolFilter = btn.getAttribute('data-filter');
+        setActiveFilterBtn('tool-filters', activeToolFilter);
+        renderTools();
+      });
+
+      document.getElementById('projects-grid').addEventListener('click', function (e) {
+        const card = e.target.closest('[data-project-id]');
+        if (!card) return;
+        openProjectModal(card.getAttribute('data-project-id'));
+      });
+
+      document.getElementById('modal-close-btn').addEventListener('click', closeProjectModal);
+      document.getElementById('project-modal').addEventListener('click', function (e) {
+        if (e.target === this) closeProjectModal();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeProjectModal();
+      });
+
+      document.getElementById('hero-copy-email').addEventListener('click', function () {
+        copyText('jimenez.cherryleeh@gmail.com', 'Email copied: jimenez.cherryleeh@gmail.com');
+      });
+      document.getElementById('copy-email-btn').addEventListener('click', function () {
+        copyText('jimenez.cherryleeh@gmail.com', 'Email copied: jimenez.cherryleeh@gmail.com');
+      });
+      document.getElementById('copy-phone-btn').addEventListener('click', function () {
+        copyText('+63 926 228 3506', 'Phone copied: +63 926 228 3506');
+      });
+
+      document.getElementById('print-btn').addEventListener('click', function () {
+        window.print();
+      });
+
+      document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        const isHidden = menu.classList.contains('hidden');
+        menu.classList.toggle('hidden');
+        this.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+      });
+
+      document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+          document.getElementById('mobile-menu').classList.add('hidden');
+          document.getElementById('mobile-menu-btn').setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      document.getElementById('inquiry-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = document.getElementById('client-name').value.trim();
+        const area = document.getElementById('support-area').value;
+        const msg = document.getElementById('client-message').value.trim();
+        if (!name || !msg) {
+          showToast('Please fill in your name and project details.');
+          return;
+        }
+        const summary =
+          'Hi Cherry Lee,\n\n' +
+          'From: ' + name + '\n' +
+          'Support Needed: ' + area + '\n\n' +
+          'Details:\n' + msg;
+
+        const mailto = document.getElementById('mailto-link');
+        mailto.href =
+          'mailto:jimenez.cherryleeh@gmail.com?subject=' +
+          encodeURIComponent('VA Inquiry: ' + area + ' — ' + name) +
+          '&body=' +
+          encodeURIComponent(summary);
+
+        copyText(summary, 'Inquiry message copied & email link updated!');
+      });
+
+      // Initial render
+      renderExperience();
+      renderProjects();
+      renderTools();
+    })();
+  </script>
+</body>
+</html>
